@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+}
+
+header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+nav {
+  float: left;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 80px;
+  padding: 20px;
+
+  position: relative;
+}
+
+nav a {
+  color: rgb(212, 212, 212);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+nav a:hover {
+  color: #4898ac;
+}
+
+nav a::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background-color: #1a5c6c;
+  align-self: center;
+
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5%;
+  width: 0%;
+
+  transition: all ease-in-out 200ms;
+}
+
+nav a:hover::before {
+  width: 60%;
+}
+
+.box {
+  width: 600px;
+  grid-column: auto;
+
+  text-align: left;
+}
+
+.about {
+  font-family: "Playfair Display", serif;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 900px;
+  justify-content: center;
+  align-items: left;
+  color: #ffffff;
+  font-weight: bolder;
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url(assets/gack.jpg) no-repeat center center/cover;
+  height: 962px;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.about-head {
+  font-size: 100px;
+  transition: none 200ms;
+}
+
+.about-head:hover {
+  color: #1a5c6c;
+  font-weight: bolder;
+  text-size-adjust: 100%;
+}
+
+.about-info {
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 10%;
+}
+
+.intro-name {
+  font-size: 3em;
+  font-family: "Playfair Display", serif;
+  position: relative;
+}
+
+.intro-name:hover {
+  color: #1a5c6c;
+  font-weight: bolder;
+  text-size-adjust: 100%;
+}
+
+/* resume section */
+
+#profile {
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  height: 100vh;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 50px;
+  justify-content: space-around;
+
+  margin: 50px;
+}
+.card {
+  font-size: 20px;
+
+  padding: 10px;
+  width: 33.33%;
+  flex: 1;
+  margin: 20px;
+}
+.mail {
+  text-decoration: none;
+  color: black;
+}
+.mail:hover {
+  text-decoration: underline;
+  color: rgb(128, 106, 255);
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+}
+
+@media (max-width: 960px) {
+  .hamburger {
+    margin: 20px;
+
+    position: absolute;
+    display: block;
+    position: fixed;
+    z-index: 3;
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(10px) rotate(50deg);
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-50deg);
+  }
+  .main-nav {
+    display: flex;
+    position: fixed;
+    left: -100%;
+    top: 7px;
+    gap: 0;
+    flex-direction: column;
+    background-color: #1d1d1d;
+    width: 20%;
+    text-align: center;
+    transition: 0.3s;
+    z-index: 2;
+    height: 20%;
+  }
+  .nav-item {
+    margin: 16px 0;
+  }
+
+  .main-nav.active {
+    left: 0;
+  }
+
+  .intro-info {
+    text-align: center;
+  }
+
+  .about-head {
+    font-size: 70px;
+  }
+  .intro-name {
+    font-size: 30px;
+  }
+  .about::before {
+    height: 910px;
+  }
+
+  .content {
+    margin: 0;
+    padding: 5px;
+    display: grid;
+    width: 1100px;
+  }
+}
